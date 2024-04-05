@@ -122,7 +122,15 @@ _TEMPLATE = jinja2.Template("""
                   })
                   .then(response => {
                       {% for series in chart.series %}
-                      this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                      if ("{{ series.series_name }}"=="ohlc"){
+                            this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                            if (response.data.markers.length){
+                              this.chart_series_ohlc.setMarkers(this.chart_series_ohlc.markers().concat(response.data.{{ series.series_name }}[0]))
+                            }
+                            }
+                      else{
+                          this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                      }
                       {% endfor %}
                   })
           } catch (error) {
@@ -224,7 +232,15 @@ _TEMPLATES = jinja2.Template("""
                   })
                   .then(response => {
                       {% for series in chart.series %}
-                      this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                      if ("{{ series.series_name }}"=="ohlc"){
+                            this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                            if (response.data.markers.length){
+                              this.chart_series_ohlc.setMarkers(this.chart_series_ohlc.markers().concat(response.data.{{ series.series_name }}[0]))
+                            }
+                            }
+                      else{
+                          this.chart_series_{{ series.series_name }}.update(response.data.{{ series.series_name }}[0])
+                      }
                       {% endfor %}
                   })
           } catch (error) {
