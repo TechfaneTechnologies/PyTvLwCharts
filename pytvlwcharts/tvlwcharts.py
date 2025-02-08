@@ -37,7 +37,7 @@ _TEMPLATE = jinja2.Template("""
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <!-- Adding the standalone version of Lightweight charts -->
-    <script type="text/javascript" src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/lightweight-charts@4.2.1/dist/lightweight-charts.standalone.production.js"></script>
     <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
         body {
@@ -274,7 +274,7 @@ class _ChartSpec:
 def _render(notebook_mode: bool,
             chart: _ChartSpec,
             data_url: str = "http://127.0.0.1:5000/data",
-            base_url: str = "https://unpkg.com/lightweight-charts/dist/",
+            base_url: str = "https://unpkg.com/lightweight-charts@4.2.1/dist/",
             output_div: str = "vis") -> str:
   """Render a model as html for viewing."""
   return (
@@ -363,7 +363,7 @@ class Chart:
   def __init__(self,
                notebook_mode: bool = True,
                data_url: str = "http://127.0.0.1:5000/data",
-               base_url: str = "https://unpkg.com/lightweight-charts/dist/",
+               base_url: str = "https://unpkg.com/lightweight-charts@4.2.1/dist/",
                data: pd.DataFrame = None,
                width: int = 400,
                height: int = 300,
